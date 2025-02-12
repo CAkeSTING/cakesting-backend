@@ -5,9 +5,9 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 
 @Entity
-class VerificationCode(
+class EmailVerificationCode(
     @Column(nullable = false)
-    val phoneNumber: String,
+    val email: String,
     @Column(nullable = false)
     val code: String
 ) : BaseEntity() {

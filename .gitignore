@@ -36,4 +36,5 @@ out/
 ### VS Code ###
 .vscode/
 
-### 초기 세팅용 커밋
+### 구글 이메일 정보 ignore
+src/main/resources/application-mail.yml

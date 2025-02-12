@@ -6,10 +6,7 @@ import com.cakesting.backend.owner.domain.Owner
 import com.cakesting.backend.owner.domain.OwnerType
 import com.cakesting.backend.security.domain.Account
 import com.cakesting.backend.security.domain.AccountStatus
-import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.NotNull
-import jakarta.validation.constraints.Pattern
-import jakarta.validation.constraints.Size
+import jakarta.validation.constraints.*
 
 class OwnerSignUpDto {
     data class Request(
@@ -32,6 +29,10 @@ class OwnerSignUpDto {
         @field:NotBlank
         @field:Size(min = 2, max = 50, message = "이름은 2 ~ 50자 길이여야 합니다.")
         val name: String,
+
+        @field:NotBlank(message = "이메일은 필수 입력 항목입니다.")
+        @field:Email(message = "유효한 이메일 형식이어야 합니다.")
+        val email: String,
 
         @field:NotBlank
         @field:Pattern(
