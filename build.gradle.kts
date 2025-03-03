@@ -39,6 +39,13 @@ dependencies {
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
+	//이메일
+	implementation("org.springframework.boot:spring-boot-starter-mail:3.4.1")
+
+	//타임리프 의존성
+	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+
 	//spring security
 	implementation ("org.springframework.boot:spring-boot-starter-security")
 }

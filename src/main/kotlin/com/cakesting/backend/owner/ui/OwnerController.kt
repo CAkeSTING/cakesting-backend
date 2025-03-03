@@ -1,7 +1,9 @@
 package com.cakesting.backend.owner.ui
 
 import com.cakesting.backend.owner.application.OwnerService
+import com.cakesting.backend.owner.application.dto.EmailVerificationDto
 import com.cakesting.backend.owner.application.dto.OwnerSignUpDto
+import com.cakesting.backend.owner.application.dto.OwnerVerificationEmailDto
 import jakarta.validation.Valid
 import org.jetbrains.annotations.NotNull
 import org.springframework.http.ResponseEntity
@@ -20,8 +22,21 @@ class OwnerController(
     @PostMapping("/signup")
     fun signUpOwner(
         @RequestBody @Valid request: OwnerSignUpDto.Request
-    ): ResponseEntity<Void> {
+    ) {
         ownerService.signUpOwner(request)
-        return ResponseEntity.ok().build()
+    }
+
+    @PostMapping("/verifications/emails")
+    fun sendVerificationEmail(
+        @RequestBody @Valid request: OwnerVerificationEmailDto.Request
+    ) {
+        ownerService.sendVerificationMail(request)
+    }
+
+    @PostMapping("/verifications/emails/verify")
+    fun verifyEmailCode(
+        @RequestBody @Valid reqeust: EmailVerificationDto.Request
+    ) {
+        ownerService.verifyEmailCode(reqeust)
     }
 }
